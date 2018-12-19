@@ -631,7 +631,7 @@ class Listing_model extends MY_Model
         $ci = &get_instance();
         $user = $ci->login_user();
 
-        $this->db->select('*');
+        $this->db->select(array('countries.name_es as country', "listings.city", "listings.price", "listing_types.name_es"));
 
         $this->db->from($this->_table)
             ->join('users', 'users.id = listings.owner_id')
